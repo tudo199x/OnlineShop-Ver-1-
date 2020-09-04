@@ -8,6 +8,8 @@ namespace OnlineShop.Areas.Admin.Controllers
 {
     public class HomeAdminController : Controller
     {
+        [Authorize]
+        
         // GET: Admin/HomeAdmin
         public ActionResult Index()
         {
