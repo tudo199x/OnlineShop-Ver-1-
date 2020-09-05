@@ -39,9 +39,14 @@ namespace OnlineShop.Areas.Admin.Controllers
             {
                 if(ModelState.IsValid)
                 {
-                    // TODO: Add insert logic here
-                    // insert data here
+                    var model = new CategoryModel();
+                    int res = model.Create(collection.Name, collection.Alias, collection.ParentID, collection.Order, collection.Status);
+                    if(res>0)
                     return RedirectToAction("Index");
+                    else
+                    {
+                        ModelState.AddModelError("", "Them moi k thanh cong");
+                    }
                 }
                 return View(collection);
             }
